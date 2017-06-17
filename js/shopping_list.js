@@ -11,23 +11,23 @@ class ShoppingList {
       this.items.push(item);
       return this.items;
     } else {
-      throw new Error("Error");
+      throw new Error("ERROR");
     }
   }
 
-  removeItem(item){
-    var removeList = this.items.indexOf(item);
+  // removeItem(item){
+  //   var removeList = this.items.indexOf(item);
 
-    if(removeList !== -1){
-      this.items.splice(removeList, 1);
-      return this.items;
-    }else if(item === undefined){
-      this.items.pop();
-      return this.items;
-    }else{
-      throw new Error("Error");
-    }
-  }
+  //   if(removeList !== -1){
+  //     this.items.splice(removeList, 1);
+  //     return this.items;
+  //   }else if(item === undefined){
+  //     this.items.pop();
+  //     return this.items;
+  //   }else{
+  //     throw new Error("Error");
+  //   }
+  // }
 
 };
 
