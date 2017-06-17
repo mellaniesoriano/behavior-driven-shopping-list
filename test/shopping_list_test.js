@@ -50,10 +50,13 @@ describe('ShoppingListItem class', function() {
   });//ending shoppinglistitem
 
   describe('ShoppingList Class', function() {
+    var shoppingList = ShoppingList;
     var myShoppingList;
+    var cereal;
 
     beforeEach(function() {
-      myShoppingList = new ShoppingList()
+      myShoppingList = new ShoppingList();
+      cereal = new ShoppingListItem("cereal", "coco puffs")
     });
 
     it('should be a function', function() {
@@ -64,15 +67,23 @@ describe('ShoppingListItem class', function() {
       expect(myShoppingList).to.have.property('items');
     });
 
-    it('items should be an empty array', function(){
-      expect(myShoppingList.items).to.be.empty;
-    })
+    it('items property should be a empty array', function(){
+      expect(myShoppingList.items).to.be.a('array');
+    });
+
+    describe('addItem() method', function () {
+      it('should have a method name addItem and has a argument', function() {
+        expect(myShoppingList.addItem).to.be.a('function')
+      });
+
+      it('should add a object to the items array', function () {
+        myShoppingList.addItem(cereal).should.contain(cereal);
+      });
+
+    });
+
 
 
   });//ending shoppinglist
-
-
-
-
-});
+});//the end
 
