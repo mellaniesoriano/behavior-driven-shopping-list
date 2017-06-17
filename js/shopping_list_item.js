@@ -1,5 +1,4 @@
 /* jshint esversion: 6 */
-var ShoppingList = require('../js/shopping_list.js');
 
 class ShoppingListItem {
   constructor(name, description, isDone) {
