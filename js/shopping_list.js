@@ -1,5 +1,6 @@
-/* jshint esversion: 6 */
-var ShoppingListItem = require('../js/shopping_list_item.js');
+
+var myShoppingListStuff = require('../js/shopping_list_item.js');
+console.log(myShoppingListStuff);
 
 class ShoppingList {
   constructor(items){
@@ -7,7 +8,7 @@ class ShoppingList {
   }
 
   addItem(item){
-    if(item instanceof ShoppingListItem){
+    if(item instanceof myShoppingListStuff){
       this.items.push(item);
       return this.items;
     } else {
@@ -15,19 +16,27 @@ class ShoppingList {
     }
   }
 
-  // removeItem(item){
-  //   var removeList = this.items.indexOf(item);
+  removeItem(item){
+    var removeList = this.items.indexOf(item);
 
-  //   if(removeList !== -1){
-  //     this.items.splice(removeList, 1);
-  //     return this.items;
-  //   }else if(item === undefined){
-  //     this.items.pop();
-  //     return this.items;
-  //   }else{
-  //     throw new Error("Error");
-  //   }
-  // }
+    if(removeList !== -1){
+      this.items.splice(removeList, 1);
+      return this.items;
+    }else if(item === undefined){
+      this.items.pop();
+      return this.items;
+    }else{
+      throw new Error("ERROR");
+    }
+  }
+
+  render() {
+    for(var i = 0; i < this.items.length; i++){
+      this.items(this.items[i].render());
+      this.items.join(' ');
+    }
+    return `<ul>${this.items.join()}</ul>`
+  }
 
 };
 
