@@ -1,6 +1,6 @@
-
-var myShoppingListStuff = require('../js/shopping_list_item.js');
-console.log(myShoppingListStuff);
+/* jshint esversion: 6 */
+// var myShoppingListStuff = require('../js/shopping_list_item.js');
+// console.log(myShoppingListStuff);
 
 class ShoppingList {
   constructor(items){
@@ -8,7 +8,7 @@ class ShoppingList {
   }
 
   addItem(item){
-    if(item instanceof myShoppingListStuff){
+    if(item instanceof ShoppingListItem){
       this.items.push(item);
       return this.items;
     } else {
@@ -30,14 +30,13 @@ class ShoppingList {
     }
   }
 
-  render() {
-    for(var i = 0; i < this.items.length; i++){
-      this.items(this.items[i].render());
-      this.items.join(' ');
+  render(){
+    var createList = '';
+    for(var i = 0; i < this.items.length; i ++){
+      createList += this.items[i].render();
     }
-    return `<ul>${this.items.join()}</ul>`
+    return `<ul>${createList}</ul>`;
   }
+}
 
-};
-
-module.exports = ShoppingList;
+// module.exports = ShoppingList;
