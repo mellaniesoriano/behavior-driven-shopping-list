@@ -16,3 +16,16 @@ function add_to_shopping_list() {
   document.querySelector('#itemTitle').value = "";
   document.querySelector('#description').value = "";
 }
+
+function changeCheckedStatus(idx, checkbox) {
+  if(checkbox.checked === true) {
+    newList.getItemById(idx).check();
+  } else {
+    newList.getItemById(idx).uncheck();
+  }
+}
+
+function removeItemButtonClicked(idx){
+  newList.removeItem(newList.getItemById(idx));
+  mainContent.innerHTML = newList.render();
+  }
