@@ -37,6 +37,16 @@ class ShoppingList {
     }
     return `<ul>${createList}</ul>`;
   }
+
+getItemById(itemId) {
+    var getItems = this.items;
+    for(var i = 0; i < getItems.length; i++) {
+      if(getItems[i]._idx === itemId) {
+        return getItems[i];
+      }
+    }
+  }
+
 }
 
 // module.exports = ShoppingList;
